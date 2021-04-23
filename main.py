@@ -57,12 +57,17 @@ for f in fileListRaw:
 
 final = [i+j for i, j in zip(fullNames, extensions)]
 
+print ("Files Renamed to:")
 for n in final:
     print (n)
 
-#rename files
-numFiles = len(final)
-for n in range(0,numFiles):
-    os.rename(fileListRaw[n], final[n])
-
-print ("Operation completed!")
+print
+renameBool = raw_input("Commit rename? (y/n):")
+if renameBool.lower() == "y":
+    #rename files
+    numFiles = len(final)
+    for n in range(0,numFiles):
+        os.rename(fileListRaw[n], final[n])
+    print ("Operation completed!")
+else:
+    print ("Rename aborted")
